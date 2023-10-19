@@ -1,0 +1,27 @@
+{
+  "name": "Boighor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/cors": "^2.8.15",
+    "@types/express": "^4.17.20",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.10",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.6.3",
+    "pino": "^8.16.0",
+    "pino-pretty": "^10.2.3"
+  },
+  "scripts": {
+    "dev": "ts-node-dev --rs --poll ./src/index.ts",
+    "build": "tsc",
+    "start": "node ./dist/index.js"
+  }
+}
