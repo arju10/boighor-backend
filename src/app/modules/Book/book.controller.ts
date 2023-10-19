@@ -21,3 +21,22 @@ export const getAllBooks = async(req:Request, res: Response, next: NextFunction)
         log.error(error.message);
     }
 }
+
+// Get Single Book By ID => API : "/api/v1/books/singleBook/:id"  => Method : [GET]
+export const getSingleBook = async(req: Request, res: Response, next:NextFunction) => {
+    try {
+        const id = req.params.id;
+        const book = await Book.findById(id);
+        if(!book){
+            return res.status(404).json({message:`No book with the id ${id}`})
+        }
+        else{
+            return res.status(200).json({
+                message:'Success',
+                data:book
+            })
+        }
+    } catch (error:any) {
+        log.error(error.message);
+    }
+}
