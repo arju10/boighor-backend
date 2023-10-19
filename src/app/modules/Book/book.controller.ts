@@ -60,10 +60,35 @@ export const updateSingleBookById = async (
     const book = await Book.findByIdAndUpdate(id, updatedData, { new: true });
 
     if (!book) {
+      log.error(`No book with the id ${id}`);
       return res.status(404).json({ message: `No book with the id ${id}` });
     } else {
       return res.status(200).json({
         message: "Updated Successfully",
+        data: book,
+      });
+    }
+  } catch (error: any) {
+    log.error(error.message);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+// Delete Single Book By ID => API : "/api/v1/books/singleBook/:id"  => Method : [Delete]
+export const deleteSingleBookById = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const id = req.params.id;
+    const book = await Book.findByIdAndDelete(id);
+    if (!book) {
+      log.error(`No book with the id ${id}`);
+      return res.status(404).json({ message: `No book with the id ${id}` });
+    } else {
+      return res.status(200).json({
+        message: "Deleted Successfully",
         data: book,
       });
     }
