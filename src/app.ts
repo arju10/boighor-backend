@@ -27,6 +27,6 @@ app.get("/", (req, res) => {
 
 // Book related routes
 import bookRouter from "../src/app/modules/Book/book.router";
-app.use("/api/v1/books",bookRouter);
+app.use("/api/v1/books", bookRouter);
 
 export { app };
