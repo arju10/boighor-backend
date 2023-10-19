@@ -4,11 +4,14 @@
 
 # Book Related API
 
+- Create New Book =>
+- >>>>  API : "/api/v1/books/createNewBook"  => Method : [POST]
 - Get All Books =>
-- > > API : "/api/v1/books/allBooks" => Method : [GET]
+- >>>>  API : "/api/v1/books/allBooks" => Method : [GET] 
 - Get Single Book By ID =>
-- > > API : "/api/v1/books/singleBook/652ef59d7910389ad4ba5f04" => Method : [GET]
+- >>>>  API : "/api/v1/books/singleBook/652ef59d7910389ad4ba5f04" => Method : [GET] 
 - Update Single Book By ID =>
-- > > API : "/api/v1/books/singleBook/652ef59d7910389ad4ba5f04" => Method :[Patch]
+- >>>>  API : "/api/v1/books/singleBook/652ef59d7910389ad4ba5f04" => Method :[Patch] 
 - Delete Single Book By ID =>
-- > > API : "/api/v1/books/singleBook/652ef59d7910389ad4ba5f04" => Method :[Delete]
+- >>>>  API : "/api/v1/books/singleBook/652ef59d7910389ad4ba5f04" => Method :[Delete] 
+

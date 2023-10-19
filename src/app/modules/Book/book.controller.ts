@@ -2,6 +2,33 @@ import { NextFunction, Request, Response } from "express";
 import { log } from "../../utils/logger";
 import { Book } from "./book.model";
 
+// Create a New Book => API: "/api/v1/books/createNewBook" => Method: [POST]
+export const createNewBook = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const bookData = req.body;
+    const newBook = await Book.create(bookData);
+
+    if (!newBook) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Failed to create new book!" });
+    }
+
+    return res.status(201).json({
+      success: true,
+      message: "Successfully created a new Book",
+      data: newBook,
+    });
+  } catch (error: any) {
+    log.error(error.message);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
 // Get All Books => API : "/api/v1/books/allBooks"  => Method : [GET]
 export const getAllBooks = async (
   req: Request,
